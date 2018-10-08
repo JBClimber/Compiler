@@ -1,0 +1,205 @@
+Statement 1 : // PROGRAM3.SL
+---------------------
+Statement 2 : 
+---------------------
+Statement 3 : main()
+parse = main 
+parse = main ( 
+parse = stmt 
+Correct Statement
+token 0 : main		>>resWd		>>n/a
+token 1 : (		>>spChar		>>n/a
+token 2 : )		>>spChar		>>n/a
+---------------------
+Statement 4 : var x, y, inport, outport;
+parse = var 
+parse = var idnt 
+parse = var idnt , 
+parse = var idntsequ 
+parse = var idntsequ , 
+parse = var idntsequ 
+parse = var idntsequ , 
+parse = var idntsequ 
+parse = stmt 
+Correct Statement
+token 0 : var		>>resWd		>>n/a
+token 1 : x		>>idnt		>>0
+token 2 : ,		>>spChar		>>n/a
+token 3 : y		>>idnt		>>1
+token 4 : ,		>>spChar		>>n/a
+token 5 : inport		>>idnt		>>2
+token 6 : ,		>>spChar		>>n/a
+token 7 : outport		>>idnt		>>3
+token 8 : ;		>>spChar		>>n/a
+---------------------
+Statement 5 : proc up, display, delay;
+parse = proc 
+parse = proc procname 
+parse = proc procname , 
+parse = proc procsequ 
+parse = proc procsequ , 
+parse = proc procsequ 
+parse = stmt 
+Correct Statement
+token 0 : proc		>>resWd		>>n/a
+token 1 : up		>>procname		>>assembler
+token 2 : ,		>>spChar		>>n/a
+token 3 : display		>>procname		>>assembler
+token 4 : ,		>>spChar		>>n/a
+token 5 : delay		>>procname		>>assembler
+token 6 : ;		>>spChar		>>n/a
+---------------------
+Statement 6 : while x>=0 do {call up call display}
+parse = while 
+parse = while idnt 
+parse = while idnt relOp 
+parse = while relexp 
+parse = whilestart 
+parse = whilestart { 
+parse = whilestart { call 
+parse = whilestart { stmt 
+parse = whilestart { stmt call 
+parse = whilestart { stmt 
+parse = stmt 
+Correct Statement
+token 0 : while		>>resWd		>>n/a
+token 1 : x		>>idnt		>>0
+token 2 : >=		>>relOp		>>n/a
+token 3 : 0		>>num		>>n/a
+token 4 : do		>>resWd		>>n/a
+token 5 : {		>>spChar		>>n/a
+token 6 : call		>>resWd		>>n/a
+token 7 : up		>>procname		>>assembler
+token 8 : call		>>resWd		>>n/a
+token 9 : display		>>procname		>>assembler
+token 10 : }		>>spChar		>>n/a
+---------------------
+Statement 7 : end
+parse = stmt 
+Correct Statement
+token 0 : end		>>resWd		>>n/a
+---------------------
+Statement 8 : 
+---------------------
+Statement 9 : up()
+parse = procname 
+parse = procname ( 
+parse = stmt 
+Correct Statement
+token 0 : up		>>procname		>>assembler
+token 1 : (		>>spChar		>>n/a
+token 2 : )		>>spChar		>>n/a
+---------------------
+Statement 10 : if inport==1 then x:=x+1;
+parse = if 
+parse = if idnt 
+parse = if idnt relOp 
+parse = if relexp 
+parse = ifstart 
+parse = ifstart idnt 
+parse = ifstart idnt assOp 
+parse = ifstart idnt assOp term 
+parse = ifstart idnt assOp term arithOp 
+parse = ifstart idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : if		>>resWd		>>n/a
+token 1 : inport		>>idnt		>>2
+token 2 : ==		>>relOp		>>n/a
+token 3 : 1		>>num		>>n/a
+token 4 : then		>>resWd		>>n/a
+token 5 : x		>>idnt		>>0
+token 6 : :=		>>assOp		>>n/a
+token 7 : x		>>idnt		>>0
+token 8 : +		>>arithOp		>>n/a
+token 9 : 1		>>num		>>n/a
+token 10 : ;		>>spChar		>>n/a
+---------------------
+Statement 11 : if x>=10 then x:=0;
+parse = if 
+parse = if idnt 
+parse = if idnt relOp 
+parse = if relexp 
+parse = ifstart 
+parse = ifstart idnt 
+parse = ifstart idnt assOp 
+parse = ifstart idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : if		>>resWd		>>n/a
+token 1 : x		>>idnt		>>0
+token 2 : >=		>>relOp		>>n/a
+token 3 : 10		>>num		>>n/a
+token 4 : then		>>resWd		>>n/a
+token 5 : x		>>idnt		>>0
+token 6 : :=		>>assOp		>>n/a
+token 7 : 0		>>num		>>n/a
+token 8 : ;		>>spChar		>>n/a
+---------------------
+Statement 12 : end
+parse = stmt 
+Correct Statement
+token 0 : end		>>resWd		>>n/a
+---------------------
+Statement 13 : 
+---------------------
+Statement 14 : display()
+parse = procname 
+parse = procname ( 
+parse = stmt 
+Correct Statement
+token 0 : display		>>procname		>>assembler
+token 1 : (		>>spChar		>>n/a
+token 2 : )		>>spChar		>>n/a
+---------------------
+Statement 15 : outport:=x;
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : outport		>>idnt		>>3
+token 1 : :=		>>assOp		>>n/a
+token 2 : x		>>idnt		>>0
+token 3 : ;		>>spChar		>>n/a
+---------------------
+Statement 16 : call delay
+parse = call 
+parse = stmt 
+Correct Statement
+token 0 : call		>>resWd		>>n/a
+token 1 : delay		>>procname		>>assembler
+---------------------
+Statement 17 : end
+parse = stmt 
+Correct Statement
+token 0 : end		>>resWd		>>n/a
+---------------------
+Statement 18 : 
+---------------------
+Statement 19 : delay()
+parse = procname 
+parse = procname ( 
+parse = stmt 
+Correct Statement
+token 0 : delay		>>procname		>>assembler
+token 1 : (		>>spChar		>>n/a
+token 2 : )		>>spChar		>>n/a
+---------------------
+Statement 20 : y:=20;
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : y		>>idnt		>>1
+token 1 : :=		>>assOp		>>n/a
+token 2 : 20		>>num		>>n/a
+token 3 : ;		>>spChar		>>n/a
+---------------------
+Statement 21 : end
+parse = stmt 
+Correct Statement
+token 0 : end		>>resWd		>>n/a
+---------------------
+End Of Process

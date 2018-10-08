@@ -1,0 +1,45 @@
+x:=16;
+temp0 := -16;
+z:=temp0;
+temp1 := 16+z;
+y:=16-temp1;
+temp2 := y-16;
+temp3 := -z;
+temp4 := -16;
+temp5 := temp3-temp4;
+temp6 := x+16+z;
+z:=+x-temp2+temp5+temp6;
+if y<>0 goto L1
+x:=16;
+L1:
+temp7 := 16-z;
+if x<temp7 goto L2
+if z<>16 goto L3
+x:=16+16;
+L3:
+L2:
+L4:
+if x<-16 goto L5
+x:=x-16;
+y:=+16;
+goto L4
+L5:
+L6:
+if z<>16 goto L7
+if x<>16 goto L8
+L9:
+if y<>16 goto L10
+if x<>15 goto L11
+z:=16;
+x:=16;
+L11:
+goto L9
+L10:
+L8:
+goto L6
+L7:
+CALL DISPLAY
+HLT
+DISPLAY:
+x:=16;
+RET

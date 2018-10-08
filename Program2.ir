@@ -1,0 +1,33 @@
+x:=0;
+CALL UP
+CALL DOWN
+CALL DISPLAY
+HLT
+UP:
+if inport<>1 goto L1
+x:=x+1;
+L1:
+if x<10 goto L2
+x:=0;
+L2:
+RET
+DOWN:
+if inport<>2 goto L3
+x:=x-1;
+L3:
+if x<10 goto L4
+x:=10;
+L4:
+RET
+DISPLAY:
+outport:=x;
+CALL DELAY
+RET
+DELAY:
+y:=50;
+L5:
+if y<0 goto L6
+y:=y-1;
+goto L5
+L6:
+RET

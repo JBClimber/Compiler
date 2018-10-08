@@ -1,0 +1,385 @@
+Statement 1 : main()
+parse = main 
+parse = main ( 
+parse = stmt 
+Correct Statement
+token 0 : main		>>resWd		>>n/a
+token 1 : (		>>spChar		>>n/a
+token 2 : )		>>spChar		>>n/a
+---------------------
+Statement 2 : var x,y,z,k,port;
+parse = var 
+parse = var idnt 
+parse = var idnt , 
+parse = var idntsequ 
+parse = var idntsequ , 
+parse = var idntsequ 
+parse = var idntsequ , 
+parse = var idntsequ 
+parse = var idntsequ , 
+parse = var idntsequ 
+parse = stmt 
+Correct Statement
+token 0 : var		>>resWd		>>n/a
+token 1 : x		>>idnt		>>0
+token 2 : ,		>>spChar		>>n/a
+token 3 : y		>>idnt		>>1
+token 4 : ,		>>spChar		>>n/a
+token 5 : z		>>idnt		>>2
+token 6 : ,		>>spChar		>>n/a
+token 7 : k		>>idnt		>>3
+token 8 : ,		>>spChar		>>n/a
+token 9 : port		>>idnt		>>4
+token 10 : ;		>>spChar		>>n/a
+---------------------
+Statement 3 : proc display, delay;
+parse = proc 
+parse = proc procname 
+parse = proc procname , 
+parse = proc procsequ 
+parse = stmt 
+Correct Statement
+token 0 : proc		>>resWd		>>n/a
+token 1 : display		>>procname		>>assembler
+token 2 : ,		>>spChar		>>n/a
+token 3 : delay		>>procname		>>assembler
+token 4 : ;		>>spChar		>>n/a
+---------------------
+Statement 4 : x:=16;
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : x		>>idnt		>>0
+token 1 : :=		>>assOp		>>n/a
+token 2 : 16		>>num		>>n/a
+token 3 : ;		>>spChar		>>n/a
+---------------------
+Statement 5 : z:=(-16);
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp ( 
+parse = idnt assOp ( arithOp 
+parse = idnt assOp ( term 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : z		>>idnt		>>2
+token 1 : :=		>>assOp		>>n/a
+token 2 : (		>>spChar		>>n/a
+token 3 : -		>>arithOp		>>n/a
+token 4 : 16		>>num		>>n/a
+token 5 : )		>>spChar		>>n/a
+token 6 : ;		>>spChar		>>n/a
+---------------------
+Statement 6 : y := 16-(16+z);
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp term 
+parse = idnt assOp term arithOp 
+parse = idnt assOp term arithOp ( 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term arithOp ( term arithOp 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : y		>>idnt		>>1
+token 1 : :=		>>assOp		>>n/a
+token 2 : 16		>>num		>>n/a
+token 3 : -		>>arithOp		>>n/a
+token 4 : (		>>spChar		>>n/a
+token 5 : 16		>>num		>>n/a
+token 6 : +		>>arithOp		>>n/a
+token 7 : z		>>idnt		>>2
+token 8 : )		>>spChar		>>n/a
+token 9 : ;		>>spChar		>>n/a
+---------------------
+Statement 7 : z:=+x-(y-16)+((-z)-(-16))+(x+16+z);//assign stmt
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp arithOp 
+parse = idnt assOp term 
+parse = idnt assOp term arithOp 
+parse = idnt assOp term arithOp ( 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term arithOp ( term arithOp 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term 
+parse = idnt assOp term arithOp 
+parse = idnt assOp term arithOp ( 
+parse = idnt assOp term arithOp ( ( 
+parse = idnt assOp term arithOp ( ( arithOp 
+parse = idnt assOp term arithOp ( ( term 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term arithOp ( term arithOp 
+parse = idnt assOp term arithOp ( term arithOp ( 
+parse = idnt assOp term arithOp ( term arithOp ( arithOp 
+parse = idnt assOp term arithOp ( term arithOp ( term 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term 
+parse = idnt assOp term arithOp 
+parse = idnt assOp term arithOp ( 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term arithOp ( term arithOp 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term arithOp ( term arithOp 
+parse = idnt assOp term arithOp ( term 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : z		>>idnt		>>2
+token 1 : :=		>>assOp		>>n/a
+token 2 : +		>>arithOp		>>n/a
+token 3 : x		>>idnt		>>0
+token 4 : -		>>arithOp		>>n/a
+token 5 : (		>>spChar		>>n/a
+token 6 : y		>>idnt		>>1
+token 7 : -		>>arithOp		>>n/a
+token 8 : 16		>>num		>>n/a
+token 9 : )		>>spChar		>>n/a
+token 10 : +		>>arithOp		>>n/a
+token 11 : (		>>spChar		>>n/a
+token 12 : (		>>spChar		>>n/a
+token 13 : -		>>arithOp		>>n/a
+token 14 : z		>>idnt		>>2
+token 15 : )		>>spChar		>>n/a
+token 16 : -		>>arithOp		>>n/a
+token 17 : (		>>spChar		>>n/a
+token 18 : -		>>arithOp		>>n/a
+token 19 : 16		>>num		>>n/a
+token 20 : )		>>spChar		>>n/a
+token 21 : )		>>spChar		>>n/a
+token 22 : +		>>arithOp		>>n/a
+token 23 : (		>>spChar		>>n/a
+token 24 : x		>>idnt		>>0
+token 25 : +		>>arithOp		>>n/a
+token 26 : 16		>>num		>>n/a
+token 27 : +		>>arithOp		>>n/a
+token 28 : z		>>idnt		>>2
+token 29 : )		>>spChar		>>n/a
+token 30 : ;		>>spChar		>>n/a
+---------------------
+Statement 8 : if y==0 then x:=16;//if stmt
+parse = if 
+parse = if idnt 
+parse = if idnt relOp 
+parse = if relexp 
+parse = ifstart 
+parse = ifstart idnt 
+parse = ifstart idnt assOp 
+parse = ifstart idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : if		>>resWd		>>n/a
+token 1 : y		>>idnt		>>1
+token 2 : ==		>>relOp		>>n/a
+token 3 : 0		>>num		>>n/a
+token 4 : then		>>resWd		>>n/a
+token 5 : x		>>idnt		>>0
+token 6 : :=		>>assOp		>>n/a
+token 7 : 16		>>num		>>n/a
+token 8 : ;		>>spChar		>>n/a
+---------------------
+Statement 9 : if x>=(16-z)then { if z==16 then x:=16+16;}
+parse = if 
+parse = if idnt 
+parse = if idnt relOp 
+parse = if idnt relOp ( 
+parse = if idnt relOp ( term 
+parse = if idnt relOp ( term arithOp 
+parse = if idnt relOp ( term 
+parse = if relexp 
+parse = ifstart 
+parse = ifstart { 
+parse = ifstart { if 
+parse = ifstart { if idnt 
+parse = ifstart { if idnt relOp 
+parse = ifstart { if relexp 
+parse = ifstart { ifstart 
+parse = ifstart { ifstart idnt 
+parse = ifstart { ifstart idnt assOp 
+parse = ifstart { ifstart idnt assOp term 
+parse = ifstart { ifstart idnt assOp term arithOp 
+parse = ifstart { ifstart idnt assOp term 
+parse = ifstart { stmt 
+parse = stmt 
+Correct Statement
+token 0 : if		>>resWd		>>n/a
+token 1 : x		>>idnt		>>0
+token 2 : >=		>>relOp		>>n/a
+token 3 : (		>>spChar		>>n/a
+token 4 : 16		>>num		>>n/a
+token 5 : -		>>arithOp		>>n/a
+token 6 : z		>>idnt		>>2
+token 7 : )		>>spChar		>>n/a
+token 8 : then		>>resWd		>>n/a
+token 9 : {		>>spChar		>>n/a
+token 10 : if		>>resWd		>>n/a
+token 11 : z		>>idnt		>>2
+token 12 : ==		>>relOp		>>n/a
+token 13 : 16		>>num		>>n/a
+token 14 : then		>>resWd		>>n/a
+token 15 : x		>>idnt		>>0
+token 16 : :=		>>assOp		>>n/a
+token 17 : 16		>>num		>>n/a
+token 18 : +		>>arithOp		>>n/a
+token 19 : 16		>>num		>>n/a
+token 20 : ;		>>spChar		>>n/a
+token 21 : }		>>spChar		>>n/a
+---------------------
+Statement 10 : while x>=-16 do {x:=x-16; y:=+16;}//composite stmt
+parse = while 
+parse = while idnt 
+parse = while idnt relOp 
+parse = while idnt relOp arithOp 
+parse = while relexp 
+parse = whilestart 
+parse = whilestart { 
+parse = whilestart { idnt 
+parse = whilestart { idnt assOp 
+parse = whilestart { idnt assOp term 
+parse = whilestart { idnt assOp term arithOp 
+parse = whilestart { idnt assOp term 
+parse = whilestart { stmt 
+parse = whilestart { stmt idnt 
+parse = whilestart { stmt idnt assOp 
+parse = whilestart { stmt idnt assOp arithOp 
+parse = whilestart { stmt idnt assOp term 
+parse = whilestart { stmt 
+parse = stmt 
+Correct Statement
+token 0 : while		>>resWd		>>n/a
+token 1 : x		>>idnt		>>0
+token 2 : >=		>>relOp		>>n/a
+token 3 : -		>>arithOp		>>n/a
+token 4 : 16		>>num		>>n/a
+token 5 : do		>>resWd		>>n/a
+token 6 : {		>>spChar		>>n/a
+token 7 : x		>>idnt		>>0
+token 8 : :=		>>assOp		>>n/a
+token 9 : x		>>idnt		>>0
+token 10 : -		>>arithOp		>>n/a
+token 11 : 16		>>num		>>n/a
+token 12 : ;		>>spChar		>>n/a
+token 13 : y		>>idnt		>>1
+token 14 : :=		>>assOp		>>n/a
+token 15 : +		>>arithOp		>>n/a
+token 16 : 16		>>num		>>n/a
+token 17 : ;		>>spChar		>>n/a
+token 18 : }		>>spChar		>>n/a
+---------------------
+Statement 11 : while z==16 do {if x==16 then { while y==16 do { if x==15 then{z:=16; x:=16;}}}}
+parse = while 
+parse = while idnt 
+parse = while idnt relOp 
+parse = while relexp 
+parse = whilestart 
+parse = whilestart { 
+parse = whilestart { if 
+parse = whilestart { if idnt 
+parse = whilestart { if idnt relOp 
+parse = whilestart { if relexp 
+parse = whilestart { ifstart 
+parse = whilestart { ifstart { 
+parse = whilestart { ifstart { while 
+parse = whilestart { ifstart { while idnt 
+parse = whilestart { ifstart { while idnt relOp 
+parse = whilestart { ifstart { while relexp 
+parse = whilestart { ifstart { whilestart 
+parse = whilestart { ifstart { whilestart { 
+parse = whilestart { ifstart { whilestart { if 
+parse = whilestart { ifstart { whilestart { if idnt 
+parse = whilestart { ifstart { whilestart { if idnt relOp 
+parse = whilestart { ifstart { whilestart { if relexp 
+parse = whilestart { ifstart { whilestart { ifstart 
+parse = whilestart { ifstart { whilestart { ifstart { 
+parse = whilestart { ifstart { whilestart { ifstart { idnt 
+parse = whilestart { ifstart { whilestart { ifstart { idnt assOp 
+parse = whilestart { ifstart { whilestart { ifstart { idnt assOp term 
+parse = whilestart { ifstart { whilestart { ifstart { stmt 
+parse = whilestart { ifstart { whilestart { ifstart { stmt idnt 
+parse = whilestart { ifstart { whilestart { ifstart { stmt idnt assOp 
+parse = whilestart { ifstart { whilestart { ifstart { stmt idnt assOp term 
+parse = whilestart { ifstart { whilestart { ifstart { stmt 
+parse = whilestart { ifstart { whilestart { stmt 
+parse = whilestart { ifstart { stmt 
+parse = whilestart { stmt 
+parse = stmt 
+Correct Statement
+token 0 : while		>>resWd		>>n/a
+token 1 : z		>>idnt		>>2
+token 2 : ==		>>relOp		>>n/a
+token 3 : 16		>>num		>>n/a
+token 4 : do		>>resWd		>>n/a
+token 5 : {		>>spChar		>>n/a
+token 6 : if		>>resWd		>>n/a
+token 7 : x		>>idnt		>>0
+token 8 : ==		>>relOp		>>n/a
+token 9 : 16		>>num		>>n/a
+token 10 : then		>>resWd		>>n/a
+token 11 : {		>>spChar		>>n/a
+token 12 : while		>>resWd		>>n/a
+token 13 : y		>>idnt		>>1
+token 14 : ==		>>relOp		>>n/a
+token 15 : 16		>>num		>>n/a
+token 16 : do		>>resWd		>>n/a
+token 17 : {		>>spChar		>>n/a
+token 18 : if		>>resWd		>>n/a
+token 19 : x		>>idnt		>>0
+token 20 : ==		>>relOp		>>n/a
+token 21 : 15		>>num		>>n/a
+token 22 : then		>>resWd		>>n/a
+token 23 : {		>>spChar		>>n/a
+token 24 : z		>>idnt		>>2
+token 25 : :=		>>assOp		>>n/a
+token 26 : 16		>>num		>>n/a
+token 27 : ;		>>spChar		>>n/a
+token 28 : x		>>idnt		>>0
+token 29 : :=		>>assOp		>>n/a
+token 30 : 16		>>num		>>n/a
+token 31 : ;		>>spChar		>>n/a
+token 32 : }		>>spChar		>>n/a
+token 33 : }		>>spChar		>>n/a
+token 34 : }		>>spChar		>>n/a
+token 35 : }		>>spChar		>>n/a
+---------------------
+Statement 12 : call display
+parse = call 
+parse = stmt 
+Correct Statement
+token 0 : call		>>resWd		>>n/a
+token 1 : display		>>procname		>>assembler
+---------------------
+Statement 13 : end
+parse = stmt 
+Correct Statement
+token 0 : end		>>resWd		>>n/a
+---------------------
+Statement 14 : display ()
+parse = procname 
+parse = procname ( 
+parse = stmt 
+Correct Statement
+token 0 : display		>>procname		>>assembler
+token 1 : (		>>spChar		>>n/a
+token 2 : )		>>spChar		>>n/a
+---------------------
+Statement 15 : x := 16;
+parse = idnt 
+parse = idnt assOp 
+parse = idnt assOp term 
+parse = stmt 
+Correct Statement
+token 0 : x		>>idnt		>>0
+token 1 : :=		>>assOp		>>n/a
+token 2 : 16		>>num		>>n/a
+token 3 : ;		>>spChar		>>n/a
+---------------------
+Statement 16 : end
+parse = stmt 
+Correct Statement
+token 0 : end		>>resWd		>>n/a
+---------------------
+End Of Process
